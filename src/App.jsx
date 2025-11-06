@@ -4,7 +4,7 @@ import Search from "./components/Search";
 import { useEffect, useState } from "react";
 import { useDebounce } from "react-use";
 import Pagination from "./components/Pagination";
-import Spinner from './components/Spinner'
+import Spinner from "./components/Spinner";
 const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const API_OPTIONS = {
@@ -16,21 +16,16 @@ const API_OPTIONS = {
 };
 
 const App = () => {
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState("a");
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [debouncedSearchTerm, setDbouncedSearchTerm] = useState("");
   const [trendingMovies, setTrendingMovies] = useState([]);
-  const [pagination, setPagination] = useState(
-    localStorage.getItem("pagination")
-  );
+  const [pagination, setPagination] = useState(1);
   useDebounce(() => setDbouncedSearchTerm(searchTerm), 900, [searchTerm]);
 
-  useEffect(() => {
-    localStorage.setItem("pagination", pagination);
-  }, [pagination]);
-  
   const fetchMovie = async (query = "") => {
     setIsLoading(true);
     setError("");
@@ -96,7 +91,9 @@ const App = () => {
         <section className="all-movies">
           <h2 className="mt-10">All movies</h2>
           {isLoading ? (
-            <p className="flex justify-center"><Spinner/></p>
+            <div className="flex justify-center">
+              <Spinner />
+            </div>
           ) : error ? (
             <p className="text-red-500">{error}</p>
           ) : (
