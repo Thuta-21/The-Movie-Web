@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "react-use";
 import Pagination from "./components/Pagination";
 import Spinner from "./components/Spinner";
+
 const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const API_OPTIONS = {
@@ -24,6 +25,7 @@ const App = () => {
   const [debouncedSearchTerm, setDbouncedSearchTerm] = useState("");
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [pagination, setPagination] = useState(1);
+  
   useDebounce(() => setDbouncedSearchTerm(searchTerm), 900, [searchTerm]);
 
   const fetchMovie = async (query = "") => {
