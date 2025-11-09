@@ -1,11 +1,11 @@
-# The Movie Web
+# 🎬 The Movie Web
 
-Search the movie you want to watch and get details about it. Also you can see most searched movies and contain dynamic pagination.
+Search for movies you want to watch and discover trending titles with dynamic pagination.
 
-•	Built with React
+-  Built with React
 
-•	Most Search Algorithm, database and pagination
+-  Implemented search algorithm, database, and pagination
 
-•	BaaS - Appwrite
+-  Backend powered by Appwrite (BaaS)
 
-•	Design with Tailwind CSS
+-  Designed using Tailwind CSS
